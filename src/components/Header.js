@@ -26,6 +26,9 @@ class Header extends Component {
     <li>
       <Link to='/players/405395'>Pujols</Link>
     </li>
+    <li>
+      <Link to='/players/545361'>Trout</Link>
+    </li>
     
       </div>
     );
