@@ -47,7 +47,8 @@ class PlayerBio extends Component {
     return ( 
     <div>
        <ul>
-    <img src={'https://securea.mlb.com/mlb/images/players/head_shot/' + playerData.key_mlbam + '.jpg'} alt={playerData.name_first + ' ' + playerData.name_last}></img> - 
+    <img src={'https://securea.mlb.com/mlb/images/players/head_shot/' + playerData.key_mlbam + '.jpg'} onError={(e)=>{e.target.onerror = null; e.target.src="https://via.placeholder.com/213x320.gif"}} alt={playerData.name_first + ' ' + playerData.name_last} ></img> 
+
    </ul> 
     </div>
     
