@@ -73,7 +73,7 @@ class PlayerStats extends Component {
   }
 
     return ( 
-    <div>
+    <div className="container">
        <ul>
 
     <li>
@@ -86,7 +86,7 @@ class PlayerStats extends Component {
       onRef={ref => this.chart = ref}
     />
     
-    } </div>
+     </div>
       
  
 

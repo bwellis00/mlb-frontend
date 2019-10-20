@@ -21,13 +21,13 @@ class Header extends Component {
     return (<div>
 
             <li>
-      <Link to='/players/660670'>Acuna</Link>
+      <Link to='/players/18401'>Acuna</Link>
     </li>
     <li>
-      <Link to='/players/405395'>Pujols</Link>
+      <Link to='/players/1177'>Pujols</Link>
     </li>
     <li>
-      <Link to='/players/545361'>Trout</Link>
+      <Link to='/players/10155'>Trout</Link>
     </li>
     
       </div>
