@@ -18,7 +18,7 @@ class Header extends Component {
   render() {
 
     // Finally, render it!
-    return (<div>
+    return (<div className="pb-6">
 
             <li>
       <Link to='/players/18401'>Acuna</Link>
