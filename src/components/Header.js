@@ -15,23 +15,27 @@ class Header extends Component {
 
   }
 
+
   render() {
 
-    // Finally, render it!
-    return (<div className="pb-6">
+    return ( 
+      <div className="pb-6 bg-gray-400">
+        <div className="container">
 
-            <li>
-      <Link to='/players/18401'>Acuna</Link>
-    </li>
-    <li>
-      <Link to='/players/1177'>Pujols</Link>
-    </li>
-    <li>
-      <Link to='/players/10155'>Trout</Link>
-    </li>
-    
+                        <li>
+                  <Link to='/players/18401'>Acuna</Link>
+                </li>
+                <li>
+                  <Link to='/players/1177'>Pujols</Link>
+                </li>
+                <li>
+                  <Link to='/players/10155'>Trout</Link>
+                </li>
+
+        </div>   
       </div>
-    );
+    
+    )
   }
 }
 
