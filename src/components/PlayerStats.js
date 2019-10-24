@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import CanvasJSReact from './canvasjs.react';
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
- 
-var dataPoints =[]; 
+
 
 class PlayerStats extends Component {
 
@@ -18,22 +15,12 @@ class PlayerStats extends Component {
   }
 
   loadData(playerID) {
-    var chart = this.chart;
     fetch('https://mlb-backend.herokuapp.com/stats/' + playerID)
      .then(response => response.json())
       .then(data => {this.setState({ 
                   playerData: data,
                   loading: false
                      })
-                    this.state.playerData.map((data, i) =>(
-                      dataPoints.push({
-                        x: data.Season,
-                        y: data.HR
-                      }),
-                      chart.render()
-                  ));
-
-
     });
   }
 
@@ -45,7 +32,6 @@ class PlayerStats extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.props.id !== prevProps.id) {
       this.loadData(this.props.id);
-      dataPoints = [];
     }
   }
 
@@ -54,25 +40,6 @@ class PlayerStats extends Component {
 
   render() {
 
-   const options = {
-     animationEnabled: true,
-    theme: "light2",
-    title: {
-      text: "Homeruns Per Year"
-    },
-    axisY: {
-      title: "Homers",
-      includeZero: false
-    },
-    axisX:{
-      interval: 1
-    },
-    data: [{
-      type: "line",
-      xValueFormatString: "####",
-      dataPoints: dataPoints
-    }]
-  }
 
     return ( 
     <div className="container">
@@ -85,9 +52,6 @@ class PlayerStats extends Component {
         )
       })}
 
-            <CanvasJSChart options = {options} 
-                onRef={ref => this.chart = ref}
-              />
               
       </div>     
       
