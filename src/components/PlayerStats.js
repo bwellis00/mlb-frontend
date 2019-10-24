@@ -13,6 +13,7 @@ class PlayerStats extends Component {
    
     this.state = {
       playerData: [],
+      loading: true
     };
   }
 
@@ -22,6 +23,7 @@ class PlayerStats extends Component {
      .then(response => response.json())
       .then(data => {this.setState({ 
                   playerData: data,
+                  loading: false
                      })
                     this.state.playerData.map((data, i) =>(
                       dataPoints.push({
@@ -74,20 +76,25 @@ class PlayerStats extends Component {
 
     return ( 
     <div className="container">
-       <ul>
-
-    <li>
-      {this.props.id}
-    </li>
-   </ul>  
-
-   < div > 
-   <CanvasJSChart options = {options} 
-      onRef={ref => this.chart = ref}
-    />
-    
-     </div>
+      { this.state.loading ? <div className="text-center text-6xl pt-6">LOADING</div> : 
       
+      <div> {this.state.playerData.map((data, i) =>{
+
+        return(
+        <li>{data.Season} - {data.HR}</li>
+        )
+      })}
+
+            <CanvasJSChart options = {options} 
+                onRef={ref => this.chart = ref}
+              />
+              
+      </div>     
+      
+      
+      }
+            
+                
  
 
    
