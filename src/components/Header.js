@@ -17,16 +17,16 @@ function getSuggestions(value) {
 
   const regex = new RegExp('^' + escapedValue, 'i');
 
-  return playerList.filter(playerList => regex.test(playerList.fullName));
+  return playerList.filter(playerList => regex.test(playerList.Name));
 }
 
 function getSuggestionValue(suggestion) {
-  return suggestion.fullName;
+  return suggestion.Name;
 }
 
 function renderSuggestion(suggestion) {
   return (
-    <Link to={'/players/' + suggestion.playerid}><div>{suggestion.fullName}</div></Link>
+    <Link to={'/players/' + suggestion.playerid}><div>{suggestion.Name}</div></Link>
   );
 }
 
