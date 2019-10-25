@@ -1,12 +1,13 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Home from './Home'
+import Leaders from './Leaders'
 import PlayerProfile from './PlayerProfile'
 
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path='/' component={Home}/>
+      <Route exact path='/' component={Leaders}/>
+      <Route exact path='/leaders/:yearid' component={Leaders}/>
       <Route path='/players/:id' component={PlayerProfile}/>  
     </Switch>
   </main>
