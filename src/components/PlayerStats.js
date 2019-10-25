@@ -42,13 +42,13 @@ class PlayerStats extends Component {
 
 
     return ( 
-    <div className="container">
+    <div className="container text-center">
       { this.state.loading ? <div className="text-center text-6xl pt-6">LOADING</div> : 
       
-      <div> {this.state.playerData.map((data, i) =>{
+      <div> Yearly Home Run Totals<br></br><br></br>{this.state.playerData.map((data, i) =>{
 
         return(
-        <li>{data.Season} - {data.HR}</li>
+        <div>{data.Season} - {data.HR}</div>
         )
       })}
 
@@ -57,11 +57,7 @@ class PlayerStats extends Component {
       
       
       }
-            
-                
- 
 
-   
 
     </div>
   

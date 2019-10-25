@@ -52,7 +52,7 @@ class PlayerBio extends Component {
             { this.state.loading ? <div></div> :
               <div>
                 <p className="text-6xl text-center">{name_first} {name_last}</p>
-                <p className="text-xl text-center"><b>DOB:</b> {birth_month}/{birth_day}/{birth_year} <b>Played From:</b> {mlb_played_first} - {mlb_played_last}</p>
+                <p className="text-xl text-center"><b>DOB:</b> {birth_month}/{birth_day}/{birth_year} &nbsp;&nbsp;<b>Played From:</b> {mlb_played_first} - {mlb_played_last}</p>
               </div>
             }
         </div>
