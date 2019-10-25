@@ -14,8 +14,8 @@
     "tailwindcss": "^1.1.2"
   },
   "scripts": {
-    "start": "watch:css start:react",
-    "build": "build:css build:react",
+    "start": "start:react",
+    "build": "build:react",
     "build:css": "postcss src/tailwind.css -o src/index.css",
     "watch:css": "postcss src/tailwind.css -o src/index.css -w",
     "start:react": "react-scripts start",
