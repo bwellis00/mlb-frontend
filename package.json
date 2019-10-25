@@ -14,8 +14,8 @@
     "tailwindcss": "^1.1.2"
   },
   "scripts": {
-    "start": "start:react",
-    "build": "build:react",
+    "start": "npm-run-all --parallel watch:css start:react",
+    "build": "npm-run-all build:css build:react",
     "build:css": "postcss src/tailwind.css -o src/index.css",
     "watch:css": "postcss src/tailwind.css -o src/index.css -w",
     "start:react": "react-scripts start",
