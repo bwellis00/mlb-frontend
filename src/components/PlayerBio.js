@@ -16,7 +16,7 @@ class PlayerBio extends Component {
   }
 
   loadData(playerID) {
-    fetch('https://mlb-backend.herokuapp.com/bios/' + playerID)
+    fetch('http://mlb-backend.herokuapp.com/bios/' + playerID)
      .then(response => response.json())
       .then(data => this.setState({ playerData: data[0],
                                     loading: false  }));
