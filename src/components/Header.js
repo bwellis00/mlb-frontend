@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Autosuggest from 'react-autosuggest';
 import YearSelect from './YearSelect';
 
-const playerList = []
+const playerList = require('../playerList.json');
 
 function escapeRegexCharacters(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
