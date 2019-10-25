@@ -101,8 +101,8 @@ class Header extends Component {
         </div>
         <div className="pl-4">
           <label>League Leaders: </label>
-          <select className="react-autosuggest__input" placeholder="Select Year">
-            <option value="" disabled selected hidden>Select Year</option>
+          <select className="react-autosuggest__input" placeholder="Select Year" defaultValue={'DEFAULT'}>
+            <option value="DEFAULT" disabled hidden>Select Year</option>
             <option value="2019">2019</option>      
             <option value="2018">2018</option>
             <option value="2017">2017</option>
