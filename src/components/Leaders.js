@@ -21,14 +21,16 @@ class Leaders extends Component {
   }
 
    componentDidMount() {
-
-       if(this.props.match.params.yearid === undefined)
-       {
+      
+      // checks to see if a year was selected. if not it defaults to 2019
+      if(this.props.match.params.yearid === undefined)
+      {
         this.setState({yearid: 2019})
-       }
-       else{
+      }
+      else{
         this.setState({yearid: this.props.match.params.yearid})
-       }
+      }
+      
       this.loadData(this.state.yearid);
   }
 
