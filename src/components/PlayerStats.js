@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
 
 class PlayerStats extends Component {
 
@@ -10,9 +11,20 @@ class PlayerStats extends Component {
    
     this.state = {
       playerData: [],
-      loading: true
-    };
+      loading: true,
+      chartOptions: {
+        xAxis: {
+          categories: [],
+        },
+        series: [
+          { 
+            data: [] }
+        ]
+      }
+    }
   }
+
+
 
   loadData(playerID) {
     fetch('https://mlb-backend.herokuapp.com/stats/' + playerID)
@@ -21,6 +33,39 @@ class PlayerStats extends Component {
                   playerData: data,
                   loading: false
                      })
+                     let seasons = []
+                     let stat = []
+                     this.state.playerData.map((data, i) =>{
+                      seasons.push(data.Season)
+                      stat.push(data.HR)  
+                    })
+                    this.setState({
+                      chartOptions: {
+                        title: {
+                          text: 'Homeruns Per Year',
+                          style: {
+                            fontWeight: 'bold',
+                            fontSize: '25px'
+                        }
+                        },
+                        legend: {
+                          enabled: false
+                      },
+                        xAxis: {
+                          categories: seasons,
+                        },
+                        yAxis: [{
+                          title: {
+                            text: 'HOMERS'
+                          }}],
+                        series: [
+                          { 
+                            name: 'Homers',
+                            data: stat }
+                        ]
+                      }
+                    })
+                     
     });
   }
 
@@ -40,19 +85,18 @@ class PlayerStats extends Component {
 
   render() {
 
+    const { chartOptions } = this.state;
 
     return ( 
     <div className="container text-center">
       { this.state.loading ? <div className="text-center text-6xl pt-6">LOADING</div> : 
       
-      <div> Yearly Home Run Totals<br></br><br></br>{this.state.playerData.map((data, i) =>{
-
-        return(
-        <div>{data.Season} - {data.HR}</div>
-        )
-      })}
-
-              
+      <div className="pt-8"> 
+<HighchartsReact
+          highcharts={Highcharts}
+          options={chartOptions}
+          key={Math.random()}
+        />
       </div>     
       
       
