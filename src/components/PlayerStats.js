@@ -42,7 +42,7 @@ class PlayerStats extends Component {
                     this.setState({
                       chartOptions: {
                         title: {
-                          text: 'Homeruns Per Year',
+                          text: 'HR',
                           style: {
                             fontWeight: 'bold',
                             fontSize: '25px'
@@ -56,11 +56,11 @@ class PlayerStats extends Component {
                         },
                         yAxis: [{
                           title: {
-                            text: 'HOMERS'
+                            text: 'HR'
                           }}],
                         series: [
                           { 
-                            name: 'Homers',
+                            name: 'HR',
                             data: stat }
                         ]
                       }
@@ -80,6 +80,41 @@ class PlayerStats extends Component {
     }
   }
 
+  updateSeries = (newStat) => {
+    let seasons = []
+    let stat = []
+    this.state.playerData.map((data, i) =>{
+     seasons.push(data.Season)
+     stat.push(data[newStat])  
+   })
+   if (newStat === "R") newStat = "RUNS"
+   this.setState({
+     chartOptions: {
+       title: {
+         text: newStat,
+         style: {
+           fontWeight: 'bold',
+           fontSize: '25px'
+       }
+       },
+       legend: {
+         enabled: false
+     },
+       xAxis: {
+         categories: seasons,
+       },
+       yAxis: [{
+         title: {
+           text: newStat
+         }}],
+       series: [
+         { 
+           name: newStat,
+           data: stat }
+       ]
+     }
+   })
+  }
 
 
 
@@ -91,7 +126,19 @@ class PlayerStats extends Component {
     <div className="container text-center">
       { this.state.loading ? <div className="text-center text-6xl pt-6">LOADING</div> : 
       
-      <div className="pt-8"> 
+      <div className="pt-12">
+        <div className="flex justify-around pb-4 font-bold">
+          <div className="cursor-pointer" onClick={this.updateSeries.bind(this, "R")}>Runs</div>
+          <div className="cursor-pointer" onClick={this.updateSeries.bind(this, "RBI")}>RBI</div>
+          <div className="cursor-pointer" onClick={this.updateSeries.bind(this, "HR")}>Homeruns</div>
+          <div className="cursor-pointer" onClick={this.updateSeries.bind(this, "AVG")}>Batting Average</div>
+          <div className="cursor-pointer" onClick={this.updateSeries.bind(this, "OBP")}>OBP</div>
+          <div className="cursor-pointer" onClick={this.updateSeries.bind(this, "SLG")}>SLG</div>
+          <div className="cursor-pointer" onClick={this.updateSeries.bind(this, "wOBA")}>wOBA</div>
+          <div className="cursor-pointer" onClick={this.updateSeries.bind(this, "wRC+")}>wRC+</div>
+          <div className="cursor-pointer" onClick={this.updateSeries.bind(this, "WAR")}>WAR</div>
+        </div>
+        <p></p>
 <HighchartsReact
           highcharts={Highcharts}
           options={chartOptions}
