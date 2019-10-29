@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import HR from './leaders/hr'
 
 
 class Leaders extends Component {
@@ -9,33 +10,34 @@ class Leaders extends Component {
 
    
     this.state = {
-      loading: true,
-      yearid: ""
+      seasonData: [],
+      loading: true
     };
   }
 
-  loadData(yearid) {
-
-
-
+  loadData(yearID) {
+    
+    fetch('https://mlb-backend.herokuapp.com/leaders/' + yearID)
+     .then(response => response.json())
+      .then(data => {this.setState({ 
+                  seasonData: data,
+                  loading: false,
+                  
+                     })
+                                       
+    });
   }
+
 
    componentDidMount() {
       
-      // checks to see if a year was selected. if not it defaults to 2019
-      if(this.props.match.params.yearid === undefined)
-      {
-        this.setState({yearid: 2019})
-      }
-      else{
-        this.setState({yearid: this.props.match.params.yearid})
-      }
+    this.loadData(this.props.match.params.yearid);
       
-      this.loadData(this.state.yearid);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.match.params.yearid !== prevProps.yearid) {
+    if (this.props.match.params.yearid !== prevState.yearid) {
+      
       this.loadData(this.props.match.params.yearid);
     }
   }
@@ -44,15 +46,41 @@ class Leaders extends Component {
 
 
   render() {
-
-    return ( 
     
+    
+    return ( 
+    <React.Fragment>
     <div className="bg-gray-900">
         <div className="container p-2 text-right text-white">
-                <p className="text-6xl text-center">{ this.props.match.params.yearid ? <span>{this.props.match.params.yearid}</span>: <span>{this.state.yearid}</span> }  Leaders</p>
-    
+                <p className="text-6xl text-center">{this.props.match.params.yearid} Leaders</p>
         </div>
     </div>
+    
+    <div className="bg-white">
+        <div className="container text-center">
+           { this.state.loading ? <div className="text-center text-6xl pt-6">LOADING</div> : <div>
+             
+           
+           {/* <HR stats={this.state.seasonData} />
+
+             <p></p><p></p><br></br>
+             
+             {this.state.seasonData.sort((a, b) => b.wOBA - a.wOBA).filter(data => data.PA > 501).slice(0, 10).map((seasonData, index) => {  
+                  return (
+                    <li>{seasonData.Name} - {seasonData.wOBA}</li>
+
+                  )
+                })} */}
+             
+             
+             
+             
+             
+             
+             </div> }
+       </div>
+    </div>
+    </React.Fragment>
   
     
     )
