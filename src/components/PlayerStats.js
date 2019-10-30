@@ -34,6 +34,7 @@ class PlayerStats extends Component {
                   loading: false
                      })
                      let seasons = []
+ 
                      let stat = []
                      this.state.playerData.map((data, i) =>{
                       seasons.push(data.Season)
@@ -119,9 +120,7 @@ class PlayerStats extends Component {
 
 
   render() {
-
     const { chartOptions } = this.state;
-
     return ( 
     <div className="container text-center">
       { this.state.loading ? <div className="text-center text-6xl pt-6">LOADING</div> : 
