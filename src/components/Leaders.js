@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import HR from './leaders/hr'
-import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
-
 
 class Leaders extends Component {
 
@@ -45,20 +42,31 @@ class Leaders extends Component {
 
   render() {
     return ( 
-    <div className="container text-center">
-      { this.state.loading ? <div className="">l</div> : 
-      
-      <div className="pt-12">
+    <React.Fragment>
 
-        <HR seasonData={this.state.seasonData} />
-
-      </div>     
-      
-      
+      { this.state.loading ?
+              <div className="bg-gray-900">
+                <div className="container p-2 text-center text-white text-6xl">LOADING</div>
+              </div> 
+              : 
+              <React.Fragment>
+                <div className="bg-gray-900">
+                  <div className="container p-2 text-center text-white text-6xl">{this.props.match.params.yearid} Leaders</div>
+                </div>
+                
+                <div className="container text-center flex flex-wrap overflow-hidden">
+                  <HR seasonData={this.state.seasonData} />
+                  <HR seasonData={this.state.seasonData} />
+                  <HR seasonData={this.state.seasonData} />
+                  <HR seasonData={this.state.seasonData} />
+                  <HR seasonData={this.state.seasonData} />
+                  <HR seasonData={this.state.seasonData} />
+                  <HR seasonData={this.state.seasonData} />
+                </div>  
+              </React.Fragment>
       }
 
-
-    </div>
+    </React.Fragment>
   
     
     )
@@ -66,11 +74,3 @@ class Leaders extends Component {
 }
 
 export default Leaders;
-
-
-
-
-
-
-
-
