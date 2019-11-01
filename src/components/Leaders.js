@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HR from './leaders/hr'
+import WOBA from './leaders/woba'
 
 class Leaders extends Component {
 
@@ -56,7 +57,7 @@ class Leaders extends Component {
                 
                 <div className="container text-center flex flex-wrap overflow-hidden">
                   <HR seasonData={this.state.seasonData} />
-                  <HR seasonData={this.state.seasonData} />
+                  <WOBA seasonData={this.state.seasonData} />
                   <HR seasonData={this.state.seasonData} />
                   <HR seasonData={this.state.seasonData} />
                   <HR seasonData={this.state.seasonData} />
