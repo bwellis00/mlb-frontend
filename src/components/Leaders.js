@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import HR from './leaders/hr'
 import WOBA from './leaders/woba'
+import AVG from './leaders/avg'
+import OBP from './leaders/obp'
+import SLG from './leaders/slg'
+import RBI from './leaders/rbi'
+import RUNS from './leaders/runs'
+import WAR from './leaders/war'
+import WRC from './leaders/wrc'
+import Runs from './leaders/runs';
 
 class Leaders extends Component {
 
@@ -56,13 +64,15 @@ class Leaders extends Component {
                 </div>
                 
                 <div className="container text-center flex flex-wrap overflow-hidden">
-                  <HR seasonData={this.state.seasonData} />
+                  <WAR seasonData={this.state.seasonData} />
                   <WOBA seasonData={this.state.seasonData} />
+                  <WRC seasonData={this.state.seasonData} />
+                  <AVG seasonData={this.state.seasonData} />
+                  <OBP seasonData={this.state.seasonData} />
+                  <SLG seasonData={this.state.seasonData} />
                   <HR seasonData={this.state.seasonData} />
-                  <HR seasonData={this.state.seasonData} />
-                  <WOBA seasonData={this.state.seasonData} />
-                  <HR seasonData={this.state.seasonData} />
-                  <HR seasonData={this.state.seasonData} />
+                  <RBI seasonData={this.state.seasonData} />
+                  <RUNS seasonData={this.state.seasonData} />
                 </div>  
               </React.Fragment>
       }
