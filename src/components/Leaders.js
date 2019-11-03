@@ -60,7 +60,7 @@ class Leaders extends Component {
                   <WOBA seasonData={this.state.seasonData} />
                   <HR seasonData={this.state.seasonData} />
                   <HR seasonData={this.state.seasonData} />
-                  <HR seasonData={this.state.seasonData} />
+                  <WOBA seasonData={this.state.seasonData} />
                   <HR seasonData={this.state.seasonData} />
                   <HR seasonData={this.state.seasonData} />
                 </div>  
