@@ -12,7 +12,7 @@ const WOBA = props => (
                         <Link to={'/players/' + data.playerid}>
                         <div className={bgClass + " text-black hover:bg-gray-200 cursor-pointer flex"}>
                           <div className="w-2/3">{data.Name}</div>
-                          <div className="w-1/3">{data.wOBA}</div>
+                          <div className="w-1/3">{data.wOBA.toFixed(3).slice(1,5)}</div>
                         </div>
                         </Link>
 
